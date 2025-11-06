@@ -28,10 +28,14 @@ async function main() {
     await mongoose.connect('mongodb://127.0.0.1:27017/FinIQ');
 }
 
+//Home Page----------------------------------------------------------
 app.get("/", (req, res) => {
-    res.send("Hi");
+    res.render("stocks/homepage.ejs");
 });
 
+
+
+// Error Handling ----------------------------------------------------
 app.use((req, res, next) => {
     next(new ExpressError(404, "Page Not Found!"));
 });
